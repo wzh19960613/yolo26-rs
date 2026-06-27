@@ -7,7 +7,7 @@ license = "MIT"
 keywords = ["yolo26", "yoloe", "candle", "vision", "inference"]
 categories = ["computer-vision", "multimedia::images", "science"]
 repository = "https://github.com/wzh19960613/yolo26-rs"
-documentation = "https://github.com/wzh19960613/yolo26-rs/doc"
+documentation = "https://github.com/wzh19960613/yolo26-rs/tree/main/doc"
 
 [lib]
 name = "yolo26_rs"
