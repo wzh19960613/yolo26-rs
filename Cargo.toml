@@ -1,0 +1,53 @@
+[package]
+name = "yolo26-rs"
+version = "0.1.0"
+edition = "2024"
+description = "Pure Rust YOLO26 runtime for inference, training scaffolding, and YOLOE prompt state."
+license = "MIT"
+keywords = ["yolo26", "yoloe", "candle", "vision", "inference"]
+categories = ["computer-vision", "multimedia::images", "science"]
+repository = "https://github.com/wzh19960613/yolo26-rs"
+documentation = "https://github.com/wzh19960613/yolo26-rs/doc"
+
+[lib]
+name = "yolo26_rs"
+crate-type = ["rlib", "cdylib"]
+
+[features]
+default = ["detect", "image", "pt"]
+detect = []
+classify = []
+segment = ["detect"]
+semantic = ["detect"]
+pose = ["detect"]
+obb = ["detect"]
+yoloe = ["yoloe-text", "yoloe-visual", "yoloe-pf"]
+yoloe-text = ["detect", "segment", "dep:mobileclip2-b-rs"]
+yoloe-visual = ["detect", "segment"]
+yoloe-pf = ["detect", "segment"]
+pt = ["dep:ruzstd", "dep:zip"]
+image = ["dep:image"]
+default_labels = []
+train = ["dep:image", "detect", "classify", "segment", "semantic", "pose", "obb", "yoloe-text", "yoloe-visual", "yoloe-pf"]
+cuda = ["candle-core/cuda", "candle-nn/cuda", "mobileclip2-b-rs?/cuda"]
+metal = ["candle-core/metal", "candle-nn/metal", "mobileclip2-b-rs?/metal"]
+wasm = ["detect", "pt", "console_error_panic_hook", "wasm-bindgen"]
+
+[dependencies]
+candle-core = "0.10.2"
+candle-nn = "0.10.2"
+console_error_panic_hook = { version = "0.1", optional = true }
+half = "2"
+image = { version = "0.25", optional = true, default-features = false, features = ["bmp", "jpeg", "png", "webp"] }
+mobileclip2-b-rs = { version = "0.1.0", optional = true }
+ruzstd = { version = "0.8", optional = true }
+wasm-bindgen = { version = "0.2", optional = true }
+zip = { version = "7.2", default-features = false, optional = true }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+getrandom = { version = "0.3", features = ["wasm_js"] }
+
+[profile.release]
+lto = "fat"
+opt-level = 3
+codegen-units = 1
