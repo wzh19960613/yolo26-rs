@@ -4,6 +4,8 @@
 
 `yolo26-rs` 是一个基于 [Candle](https://github.com/huggingface/candle) 的纯 Rust YOLO26 / YOLOE-26 运行时。默认路径专注推理；启用 `train` feature 后提供原生 Candle 训练 API/CLI。
 
+详细文档见 [doc](https://github.com/wzh19960613/yolo26-rs/tree/main/doc)。
+
 支持的任务：
 
 | 任务 | 模块 | 权重文件示例 | 输出类型 |

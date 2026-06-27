@@ -1,13 +1,12 @@
 [package]
 name = "yolo26-rs"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Pure Rust YOLO26 runtime for inference, training scaffolding, and YOLOE prompt state."
 license = "MIT"
 keywords = ["yolo26", "yoloe", "candle", "vision", "inference"]
 categories = ["computer-vision", "multimedia::images", "science"]
 repository = "https://github.com/wzh19960613/yolo26-rs"
-documentation = "https://github.com/wzh19960613/yolo26-rs/tree/main/doc"
 
 [lib]
 name = "yolo26_rs"

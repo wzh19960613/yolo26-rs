@@ -4,6 +4,8 @@
 
 `yolo26-rs` is a pure Rust YOLO26 / YOLOE-26 runtime built on [Candle](https://github.com/huggingface/candle). The default path focuses on inference; enabling the `train` feature provides native Candle training APIs and CLI support.
 
+For detailed documentation, see [doc](https://github.com/wzh19960613/yolo26-rs/tree/main/doc).
+
 Supported tasks:
 
 | Task | Module | Weight file example | Output type |
