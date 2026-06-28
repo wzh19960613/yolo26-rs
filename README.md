@@ -1,6 +1,6 @@
 # yolo26-rs
 
-[Chinese](README_CN.md) | English
+[中文](README_CN.md) | English
 
 `yolo26-rs` is a pure Rust YOLO26 / YOLOE-26 runtime built on [Candle](https://github.com/huggingface/candle). The default path focuses on inference; enabling the `train` feature provides native Candle training APIs and CLI support.
 
